@@ -1,21 +1,20 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import pandas as pd
-
 from model import demand_predictor
+import os
 
 app = FastAPI()
 
+# Define data model
 class NewData(BaseModel):
     part_number: str
     date: str
     demand: int
 
-
-
+# Add CORS middleware
 from fastapi.middleware.cors import CORSMiddleware
 
-# Add CORS middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],  # Adjust to your frontend URL
@@ -24,6 +23,7 @@ app.add_middleware(
     allow_headers=["*"],  # Allows all headers
 )
 
+# Define API endpoints
 @app.get("/api/get-demand")
 async def get_demand():
     data = pd.read_csv("data/historical_data.csv")
@@ -46,3 +46,8 @@ async def predict_demand():
 async def read_data():
     return {"message": "Hello from the backend!"}
 
+# Run the app on a specified port for Render
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))  # Render sets this environment variable
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=port)
