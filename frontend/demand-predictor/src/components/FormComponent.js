@@ -8,7 +8,7 @@ const FormComponent = ({ fetchData }) => { // Accept fetchData as prop
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:8000/api/add-data", {
+        await axios.post("https://predictive-demand-analysis.onrender.com/api/add-data", {
             part_number: partNumber,
             date: new Date().toISOString().slice(0, 10),
             demand: parseInt(demand),

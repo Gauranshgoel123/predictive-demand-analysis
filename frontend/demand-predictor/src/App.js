@@ -8,7 +8,7 @@ function App() {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get("http://localhost:8000/api/get-demand");
+            const response = await axios.get("https://predictive-demand-analysis.onrender.com/api/get-demand");
             console.log("Historical Demand Data:", response.data);
             setData(response.data);
         } catch (error) {
