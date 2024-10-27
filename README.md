@@ -2,6 +2,11 @@
 
 ## Demand Forecasting Project
 
+![image](https://github.com/user-attachments/assets/96f96cad-6e55-4c25-baa2-38a01f60534c)
+
+## Check out the live site at:
+https://predictive-demand-analyzer.onrender.com/
+
 ## Overview
 The Demand Forecasting Project is a web application designed to predict the future demand for part numbers based on historical data. It provides visualizations of predicted demand trends and allows users to input additional data for more accurate forecasts.
 
