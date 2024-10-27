@@ -3,5 +3,5 @@ services:
     name: predictive-demand-analysis  
     env: python
     plan: free
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python main.py" 
+    buildCommand: "pip install -r backend/requirements.txt"
+    startCommand: "python backend/main.py"  # Adjust if main.py is in a subdirectory
